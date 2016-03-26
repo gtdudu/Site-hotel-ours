@@ -18,7 +18,7 @@ npm install
 
 In order for grunt to launch mongod you will need to create a data/db folder at the root of the project
 ```
-  mkdir data/db
+  mkdir data data/db
 ```
 
 You're all set.
