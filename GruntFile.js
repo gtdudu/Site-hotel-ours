@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     // JS TASKS ================================================================
     // check all js files for errors
     jshint: {
-      all: ['Gruntfile.js', 'server/**/*.js', 'client/src/js/**/*.js', 'client/src/js/*.js']
+      all: ['Gruntfile.js', 'server.js', 'server/**/*.js', 'client/src/js/**/*.js', 'client/src/js/*.js']
     },
 
     // take all the js files and minify them into app.min.js
