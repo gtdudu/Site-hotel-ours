@@ -1,0 +1,24 @@
+<div class="main" data-ng-controller="galleryController" ng-init="findOne()">
+  <div class="container-fluid">
+    <div class="row">
+  <div class="wrapper">
+    <h1>photo gallery</h1>
+    <div class="inline">
+      <p class='selected'>Chambres</p>
+      <p>Restaurant</p>
+      <p>Extérieur</p>
+    </div>
+    <div id="slides_control">
+      <carousel interval="myInterval">
+        <slide ng-repeat="src in gallery.images" active="active">
+          <img ng-src="{{src}}">
+          <div class="carousel-caption">
+            <h4>Slide {{$index+1}}</h4>
+          </div>
+        </slide>
+      </carousel>
+    </div>
+  </div>
+</div>
+</div>
+</div>

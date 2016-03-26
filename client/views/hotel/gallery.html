@@ -1,0 +1,24 @@
+<div id="gallery" data-ng-controller="galleryController" ng-init="init()">
+  <div class="gallery">
+  </div>
+  <div class= "wrapper">
+    <h1>photo gallery</h1>
+    <ul >
+      <li ng-repeat="src in galleries" ng-class="class(src._id)" ng-click="select(src)">
+        {{src.title}}
+      </li>
+    </ul>
+    <div id="slides_control">
+      <div class='box'>
+      <carousel interval="myInterval">
+        <slide ng-repeat="src in selected.images" active="active">
+          <img ng-src="{{src}}">
+          <div class="carousel-caption">
+            <h4>Slide {{$index+1}}</h4>
+          </div>
+        </slide>
+      </carousel>
+    </div>
+    </div>
+  </div>
+</div>

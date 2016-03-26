@@ -1,0 +1,27 @@
+<div class="container" ng-controller="postController" ng-init="init()">
+  <div class="page-header">
+    <h3>List of products from the REST API
+      <code>/api/v1/posts</code>
+    </h3>
+  </div>
+
+
+  <p class="lead">
+    <table class="table table-striped">
+      <tr>
+        <th>Title</th>
+        <th>Name</th>
+        <th>View</th>
+        <th ng-show="isAdmin()">Edit</th>
+        <th ng-show="isAdmin()">Remove</th>
+      </tr>
+      <tr ng-repeat="p in posts">
+        <td>{{p.title}}</td>
+        <td>{{p.content}}</td>
+        <td><button data-ng-click="goToView(p);">view</button></td>
+        <td ng-show="isAdmin()"><button data-ng-click="goToEdit(p);">edit</button></td>
+        <td ng-show="isAdmin()"><button  data-ng-click="remove(p);">remove</button></td>
+      </tr>
+    </table>
+  </p>
+</div>

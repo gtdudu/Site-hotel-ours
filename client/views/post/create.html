@@ -1,0 +1,37 @@
+<div class="container" data-ng-controller="postController">
+	<div class="page-header">
+		<h1>New post</h1>
+	</div>
+	{{fileSelected}}
+	<div class="col-md-12">
+		<form name="postForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+			<fieldset>
+				<div class="form-group">
+					<label class="control-label" for="title">Title</label>
+					<div class="controls">
+						<input name="postTitle" type="text" data-ng-model="postTitle" id="postTitle" class="form-control" placeholder="post Title" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="content">Content</label>
+					<div class="controls">
+						<textarea name="postContent" data-ng-model="postContent" id="postContent" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="content">Upload an image</label>
+					<div class="controls">
+                  <input class="btn btn-default form-control" id="file" type="file" onchange="angular.element(this).scope().imageUpload(event)" multiple />
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{{progress}}%;"></div>
+                  </div>
+						<!-- <input name="images" type="file" data-ng-model="postImages" id="postImages" class="form-control" placeholder="Upload your images" /> -->
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-default">
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
