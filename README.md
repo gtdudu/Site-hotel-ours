@@ -3,8 +3,8 @@
 - grunt
 - mongo, mongoose
 - express, body-parser, morgan, serve-favicon
-- bcrypt, jwt
 - angular, angular-route, angular-animate, angular-ui-bootstrap
+- node, bcrypt, jwt
 - less, bootstrap, jquery, cssgram, font-awesome
 
 ## Setting it up
