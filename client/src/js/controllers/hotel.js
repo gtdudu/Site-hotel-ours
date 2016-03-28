@@ -8,17 +8,17 @@
     HotelCtrl.$inject = ['$scope', '$window'];
 
     function HotelCtrl($scope, $window) {
-      $scope.notif = {
-        msg: 'fzae',
-        class: 'failure',
-        show: function() {
-          if (this.msg !== '')
-            return true;
-          return false;
-        }
-      };
-      $scope.user = $window.sessionStorage.user;
-      $scope.role = $window.sessionStorage.userRole;
+      // $scope.notif = {
+      //   msg: 'fzae',
+      //   class: 'failure',
+      //   show: function() {
+      //     if (this.msg !== '')
+      //       return true;
+      //     return false;
+      //   }
+      // };
+      // $scope.user = $window.sessionStorage.user;
+      // $scope.role = $window.sessionStorage.userRole;
     }
 
 })();

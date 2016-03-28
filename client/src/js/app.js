@@ -5,13 +5,14 @@ myApp.config(function($routeProvider, $httpProvider, $locationProvider) {
   $httpProvider.interceptors.push('TokenInterceptor');
 
   $routeProvider
-    .when('/login', {
-      templateUrl: 'user/login.html',
-      controller: 'loginCtrl',
+    .when('/', {
+      templateUrl: 'partials/home.html',
       requiredLogin: false
     })
-    .when('/', {
-      redirectTo:'/hotel'
+    .when('/login', {
+      templateUrl: 'dashboard/user/login.html',
+      controller: 'loginCtrl',
+      requiredLogin: false
     })
     .when('/dashboard', {
       templateUrl: 'dashboard/dashboard.html',
@@ -19,35 +20,42 @@ myApp.config(function($routeProvider, $httpProvider, $locationProvider) {
       requiredLogin: true,
       requiredAdmin: true
     })
-    .when('/hotel', {
-      templateUrl: 'hotel/hotel.html',
-      controller: 'hotelCtrl',
-    })
     .when('/chambres', {
-      templateUrl: 'room/room.html',
+      templateUrl: 'partials/room.html',
       controller: 'roomCtrl',
-    })
-    .when('/gallery/:id', {
-      templateUrl: 'gallery/gallery-view.html',
-      controller: 'galleryController',
       requiredLogin: false
     })
-    .when('/post/:id', {
-      templateUrl: 'post/post-view.html',
-      controller: 'postController',
+    .when('/restaurant', {
+      templateUrl: 'partials/resto.html',
       requiredLogin: false
-   })
-    .when('/post/:id/edit', {
-      templateUrl: 'post/post-edit.html',
-      controller: 'postController',
-      requiredLogin: true
     })
-    .when('/nop', {
+    .when('/offres', {
+      templateUrl: 'partials/package.html',
+      requiredLogin: false
+    })
+    .when('/privatiser', {
+      templateUrl: 'partials/private.html',
+      requiredLogin: false
+    })
+    .when('/tourisme', {
+      templateUrl: 'partials/tourism.html',
+      requiredLogin: false
+    })
+    .when('/venir', {
+      templateUrl: 'partials/contact.html',
+      requiredLogin: false
+    })
+    .when('/galerie', {
+      templateUrl: 'partials/galerie.html',
+      requiredLogin: false
+    })
+    .when('/forbidden', {
       templateUrl: 'error/unauthorized.html',
       requiredLogin: false
     })
     .otherwise({
-      templateUrl: 'error/404.html'
+      templateUrl: 'error/404.html',
+      requiredLogin: false
     });
 
     // use the HTML5 History API
@@ -67,7 +75,7 @@ myApp.run(function($rootScope, $window, $location, LoggedFactory) {
       $location.path("/login");
      }
     if (nextRoute.requiredAdmin && LoggedFactory.userRole !== 'admin') {
-      $location.path("/nop");
+      $location.path("/forbidden");
      }
   });
 

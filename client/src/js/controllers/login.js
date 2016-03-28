@@ -24,7 +24,7 @@
           $window.sessionStorage.user = data.user.username;
           $window.sessionStorage.userRole = data.user.role;
 
-          $location.path("/");
+          $location.path("/dashboard");
 
         }).error(function(status) {
           console.log('Noooooooooo, something went wrong!');

@@ -1,84 +1,411 @@
+// HELPER FUNCTIONS ================================================================
+.font-size(@sizeValue) {
+  @remValue: @sizeValue;
+  @pxValue: (@sizeValue * 10);
+  font-size: ~"@{pxValue}px !important";
+  font-size: ~"@{remValue}rem !important";
+}
+
+
+// THEME COLORS ================================================================
 @base-brown: #312923;
 @purple-red: #710F11;
 @green-tea: #C57329;
-@ligth-beige: #E4DFB5;
 @custom-white: #FCFCFC;
 
+// THEME FONTS ================================================================
+p { font-family: 'Lato', sans-serif; color: @purple-red}
+
+// THEME SIZES ================================================================
+h1 { .font-size(8.9764) }
+h2 { .font-size(6.734) }
+h3 { .font-size(5.0517) }
+h4 { .font-size(3.7897) }
+h5 { .font-size(2.843) }
+h6 { .font-size(2.1328) }
+p { .font-size(1.6) }
+a { .font-size(1.2003) }
+
+
+// BASIC SETUP ================================================================
 html {
+  font-size: 62.5%;
   background: @custom-white;
 }
-/*main theme fonts*/
 
-h1, h2, h3, h4, h5, h6, a {
-  font-family: 'Lato', sans-serif;
+body {
+  text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 400;
+  color: @purple-red;
+  background: @custom-white;
+  letter-spacing: 1px;
 }
 
-p, ul, li {
-  font-family: 'Crimson Text', serif;
+// HELPER CLASS ================================================================
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-/*gt-Notifications{
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  color: #fff;
-  z-index: -9999;
+
+.imagewrap {
+  display:inline-block;
+  position:relative;
 }
 
-gt-Notification{
-  position: absolute;;
-  width: 100%;
-  top: 50px;
-  text-align: right;
-  padding: 15px 90px;
-  margin-bottom: 15px;
-  border-radius: 3px;
-  display: block;
-  z-index: 1199;
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mt-30 { margin-top: 30px; }
+.mt-40 { margin-top: 40px; }
+.mt-70 { margin-top: 70px; }
 
-}*/
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-30 { margin-bottom: 30px; }
+.mb-40 { margin-bottom: 40px; }
 
-.success {
-   background-color: rgba(92,184,92,1);
+.mw-700 {   max-width: 700px; }
+
+// LOGO ================================================================
+.logo {
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: absolute;
+    z-index: 8;
+    top: 35px;
+    left: 50%;
+    color: @purple-red;
+    -webkit-transform: translate(-50%,0);
+    -moz-transform: translate(-50%,0);
+    -ms-transform: translate(-50%,0);
+    -o-transform: translate(-50%,0);
+    transform: translate(-50%,0);
+
+    height: 70px;
+    padding: 20px 0 0 0;
+
+    transition:all .4s linear;
+    -o-transition:all .4s linear;
+    -moz-transition:all .4s linear;
+    -webkit-transition:all .4s linear;
+    opacity: 1;
 }
 
-.failure {
-   background-color: rgba(217,83,79,1);
+@media (min-width: 768px) {
+    .logo {
+      top: 20px;
+    }
 }
 
-.navbar-fixed-top {
-  top: 30px !important;
+// NAV ================================================================
+.navbar-default {
+  margin-top: 65px;
+  border: none;
+  background: @custom-white;
+  color: @purple-red;
+  .navbar-collapse {
+    border: none;
+  }
+  .navbar-form {
+    border: none;
+  }
+  .navbar-toggle {
+    margin-top:  -47px;
+    background: none;
+    border: none;
+    &:hover {
+      background-color: transparent;
+    }
+    &:focus {
+      background-color: transparent;
+    }
+    .icon-bar {
+      background-color: @purple-red;
+    }
+  }
+}
+
+.navbar-collapse[aria-expanded=false]{
+  height: 0;
+  padding: 0 0 -30px!important;
+  margin: 0!important;
+}
+
+.navbar-nav li {
+  max-width: 300px;
+  margin: auto;
+}
+
+.navbar-left li {
+  padding-top: 15px;
+  padding-bottom: 14px;
+  a {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+  }
+}
+
+.navbar-right li a {
+  &:hover {
+    color: @green-tea!important;
+  }
+  color: @purple-red !important;
+  .font-size(1.6);
+  text-transform: capitalize;
+  padding-top: 15px;
+  padding-bottom: 14px;
+  border-top: 1px solid @green-tea;
+}
+
+
+@media (min-width: 768px) {
+    .navbar-default {
+      padding-top: 10px!important;
+      padding-bottom: 16px!important;
+      li:not(:first-child):before {
+        content: '.';
+        font-weight: 700;
+        position: absolute;
+        top: 12px;
+        .font-size(2.1);
+        left: -2px;
+      }
+      li a {
+        border: none!important;
+      }
+    }
+    .navbar-left {
+      margin-top: -70px;
+    }
+    .navbar-right {
+      white-space: nowrap;
+        display: inline-block;
+        float: none!important;
+        vertical-align: top;
+        margin-left: -38px;
+    }
+    .navbar-collapse {
+      text-align: center;
+    }
+}
+
+// ROOMS ================================================================
+
+.room-title {
+  white-space: nowrap;
+  position: absolute;
+  bottom: -15px;
+  text-transform: uppercase;
+  .font-size(1.6);
+  font-weight: 400;
+  color: white;
+  padding: 10px;
   background: @green-tea;
-  border-bottom: 1px solid rgba(157,92,31,1);
+  left: 50%;
+  -webkit-transform: translate(-50%,0);
+  -moz-transform: translate(-50%,0);
+  -ms-transform: translate(-50%,0);
+  -o-transform: translate(-50%,0);
+  transform: translate(-50%,0);
+}
+
+.room-pic {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+}
+.description {
+  font-weight: 700!important;
+}
+
+@media (min-width: 768px){
+  .description {
+    padding: 0 150px 0 150px !important;
+  }
+}
+
+// RESTAURANT ================================================================
+.food-title {
+  white-space: nowrap;
+  position: absolute;
+  bottom: -10px;
+  text-transform: uppercase;
+  .font-size(1.6);
+  font-weight: 400;
+  color: white;
+  left: 50%;
+  -webkit-transform: translate(-50%,0);
+  -moz-transform: translate(-50%,0);
+  -ms-transform: translate(-50%,0);
+  -o-transform: translate(-50%,0);
+  transform: translate(-50%,0);
+  h6 {
+    &:first-child {
+      margin-right: 10px;
+    }
+    display: inline;
+    padding: 10px;
+    background: @green-tea;
+    .font-size(1.6);
+  }
+  .selected {
+    background: @purple-red;
+  }
+}
+
+.food-pic {
+  background: url('/img/food.jpg') center no-repeat;
+  background-size: cover;
+  width: 100%;
+  margin: auto;
+  max-width: 960px;
+  height: 300px;
+}
+
+.horaire {
+  text-align: center;
+  margin-bottom: 30px;
+  .title {
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    .font-size(1.2003);
+    &:not(:first-child){
+      padding-top: 15px;
+    }
+  }
+}
+
+.menu {
+  background: @green-tea;
+  max-width: 100px;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.align-left {
+  p {
+    .font-size(1.2003);
+  }
+  .desc-title {
+    .font-size(1.6);
+    font-weight: 700;
+    padding-bottom: 20px;
+  }
+}
+
+@media (min-width: 768px){
+  .food-pic {
+    min-height: 400px;
+    width: 100%;
+  }
+  .food-title h6 {
+    &:first-child {
+      margin-right: 20px;
+    }
+  }
+  .align-left {
+    margin-left: -30px;
+    text-align: left;
+  }
+  .horaire {
+    float: left;
+    margin-bottom: none;
+  }
+}
+
+// OFFRES (for now same as room) ================================================================
+
+
+// TOURISME (for now same as room) ================================================================
+
+.img {
+  width: 300px;
+  padding: 0 100px 0 100px;
+  height: 400px;
+  padding: 3px;
+}
+
+.img-pair {
+  border-top: 1px solid @purple-red;
+  border-left: 1px solid @purple-red;
+}
+
+.img-impair {
+  border-top: 1px solid @purple-red;
+  border-right: 1px solid @purple-red;
+}
+
+.minw-700 {
+  h5 {
+    color: @green-tea;
+  }
+}
+
+@media (min-width: 768px){
+  .minw-700 {
+    min-width: 500px;
+    max-width: 1000px;
+  }
+  .img-pair {
+    float: left!important;
+    margin-right: 40px;
+  }
+  .img-impair {
+    float: right!important;
+    margin-left: 40px;
+
+  }
+}
+
+// PRIVATISER (for now same as tourism) ================================================================
+
+
+// GALERIE  ================================================================
+
+.galerie-title {
+  color: @green-tea;
   text-transform: uppercase;
 }
 
-.navbar-right {
-  margin-right: 20px !important;
+.img-responsive {
 }
 
-a {
-  color: #fcfcfc !important
+@media (min-width: 768px){
+  .img-responsive {
+    width: 360px;
+    height: 205px;
+  }
+}
+// VENIR ================================================================
+.google-maps {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
 }
 
-.room {
-  background: url('../img/room.png') center;
-  background-size: cover;
-  height: 750px;
-  min-width: 100%;
+.google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 400px !important;
 }
 
-#Layer_1 {
-  opacity: 0;
-  padding: 10px;
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  background: #000;
-  right: 40px;
-  bottom: 40px;
-  z-index: 100;
-  -webkit-transition: opacity .3s 0s, visibility 0s 0s;
-  -moz-transition: opacity .3s 0s, visibility 0s 0s;
-  transition: opacity .3s 0s, visibility 0s 0s;
+@media (min-width: 768px){
+  .google-maps {
+    height: 400px;
+  }
+}
+
+
+.btn-primary {
+  background: @green-tea!important;
 }

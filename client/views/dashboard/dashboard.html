@@ -1,9 +1,4 @@
 <div class="container" ng-controller="privateController">
-  <div class="page-header">
-    <h3>Dashboard
-      <code>nothing for now, old: /api/v1/galleries</code>
-    </h3>
-  </div>
 
   <form name="myForm">
     <label for="singleSelect"> Single select: </label><br>
@@ -17,14 +12,14 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <div ng-show="check('galleries')"  ng-include="'gallery/list.html'"></div>
-        <div ng-show="check('galleries')" ng-include="'gallery/create.html'"></div>
+        <div ng-show="check('galleries')"  ng-include="'dashboard/gallery/list.html'"></div>
+        <div ng-show="check('galleries')" ng-include="'dashboard/gallery/create.html'"></div>
 
-        <div ng-show="check('posts')"  ng-include="'post/list.html'"></div>
-        <div ng-show="check('posts')"  ng-include="'post/create.html'"></div>
+        <div ng-show="check('posts')"  ng-include="'dashboard/post/list.html'"></div>
+        <div ng-show="check('posts')"  ng-include="'dashboard/post/create.html'"></div>
 
-        <div ng-show="check('users')"  ng-include="'user/list.html'"></div>
-        <div ng-show="check('users')"  ng-include="'user/create.html'"></div>
+        <div ng-show="check('users')"  ng-include="'dashboard/user/list.html'"></div>
+        <div ng-show="check('users')"  ng-include="'dashboard/user/create.html'"></div>
       </div>
     </div>
   </div>

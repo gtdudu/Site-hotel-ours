@@ -40,7 +40,7 @@ module.exports = function(grunt) {
     less: {
       build: {
         files: {
-          'client/src/css/style.css': ['client/src/css/app.less', 'client/src/css/reset.less']
+          'client/src/css/style.css': ['client/src/css/reset.less', 'client/src/css/app.less']
         }
       }
     },
