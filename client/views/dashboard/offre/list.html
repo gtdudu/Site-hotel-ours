@@ -1,0 +1,52 @@
+<div class="container" ng-controller="offreController" ng-init="init()">
+
+
+  <div class="page-header">
+		<h6>Créer une nouvelle offre</h6>
+	</div>
+	<form name="form">
+		<div class="form-group">
+			<label class="control-label" for="title">Titre</label>
+			<div class="controls">
+				<input name="offreTitle" type="text" data-ng-model="offreTitle" id="offreTitle" class="form-control" placeholder="Titre" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="content">Description</label>
+			<div class="controls">
+				<textarea name="offreContent" data-ng-model="offreContent" id="offreContent" class="form-control" cols="30" rows="10" placeholder="Description"></textarea>
+			</div>
+		</div>
+
+	  Single Image with validations
+	  <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+	    ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="300">Select</div>
+	  <button type="submit" ng-click="submit()">submit</button>
+
+		Image thumbnail: <img ngf-thumbnail="file || '/thumb.jpg'">
+
+	</form>
+
+
+  <div class="page-header">
+    <h6>Listing de toutes les offres</h6>
+  </div>
+
+
+  <p class="lead">
+    <table class="table table-striped">
+      <tr>
+        <th>Titre</th>
+        <th>Description</th>
+        <th ng-show="isAdmin()">Vérifier</th>
+        <th ng-show="isAdmin()">Supprimer</th>
+      </tr>
+      <tr ng-repeat="p in offres">
+        <td>{{p.title}}</td>
+        <td>{{p.content}}</td>
+        <td><button data-ng-click="goToView(p);">Vérifier</button></td>
+        <td ng-show="isAdmin()"><button  data-ng-click="remove(p);">Supprimer</button></td>
+      </tr>
+    </table>
+  </p>
+</div>

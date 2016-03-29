@@ -1,4 +1,4 @@
-var myApp = angular.module('ngclient', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
+var myApp = angular.module('ngclient', ['ngRoute', 'ngAnimate', 'ui.bootstrap', 'ngFileUpload']);
 
 myApp.config(function($routeProvider, $httpProvider, $locationProvider) {
 
@@ -10,7 +10,7 @@ myApp.config(function($routeProvider, $httpProvider, $locationProvider) {
       requiredLogin: false
     })
     .when('/login', {
-      templateUrl: 'dashboard/user/login.html',
+      templateUrl: 'dashboard/login.html',
       controller: 'loginCtrl',
       requiredLogin: false
     })
@@ -30,8 +30,12 @@ myApp.config(function($routeProvider, $httpProvider, $locationProvider) {
       requiredLogin: false
     })
     .when('/offres', {
-      templateUrl: 'partials/package.html',
+      templateUrl: 'partials/offre.html',
       requiredLogin: false
+    })
+    .when('/offre/:id', {
+      templateUrl: 'dashboard/offre/view-edit.html',
+      requiredLogin: true
     })
     .when('/privatiser', {
       templateUrl: 'partials/private.html',

@@ -211,6 +211,49 @@ body {
 .mw-700 {
   max-width: 700px;
 }
+/*gt-Notifications{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  color: #fff;
+  z-index: -9999;
+}
+
+gt-Notification{
+  position: absolute;;
+  width: 100%;
+  top: 50px;
+  text-align: right;
+  padding: 15px 90px;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  display: block;
+  z-index: 1199;
+}
+
+.success {
+   background-color: rgba(92,184,92,1);
+}
+
+.failure {
+   background-color: rgba(217,83,79,1);
+}
+
+*/
+#Layer_1 {
+  opacity: 0;
+  padding: 10px;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: #000;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100;
+  -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+  -moz-transition: opacity .3s 0s, visibility 0s 0s;
+  transition: opacity .3s 0s, visibility 0s 0s;
+}
 .logo {
   white-space: nowrap;
   text-transform: uppercase;
@@ -477,6 +520,11 @@ body {
   color: #c57329;
   text-transform: uppercase;
 }
+.img-responsive {
+  display: block;
+  width: 100%;
+  max-height: 400px;
+}
 @media (min-width: 768px) {
   .img-responsive {
     width: 360px;
@@ -502,4 +550,10 @@ body {
 }
 .btn-primary {
   background: #c57329 !important;
+}
+.login {
+  text-align: left;
+}
+.dashboard {
+  text-align: left;
 }

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var PostSchema = new mongoose.Schema({
+var TourismSchema = new mongoose.Schema({
 	title: {
 		type: String,
 		required: true
@@ -9,9 +9,12 @@ var PostSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
+  link: {
+    type: String,
+  },
 	images: {
-		type: String, 
+		type: String,
 	}
 });
 
-module.exports = mongoose.model('Post', PostSchema);
+module.exports = mongoose.model('Tourism', TourismSchema);

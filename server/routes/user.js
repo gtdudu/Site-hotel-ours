@@ -46,7 +46,7 @@ var users = {
     var user = new User();
     user.username = req.body.username;
     user.password = req.body.password;
-    user.role = 'user';
+    user.role = req.body.role || 'user';
     user.save(function(err, result) {
       if (err)
       res.send(err);
@@ -66,7 +66,7 @@ var users = {
     User.findByIdAndRemove({ _id: req.params.id }, function(err) {
       if (err)
       res.send(err);
-      res.json({ message: 'Article removed!' });
+      res.json({ message: 'User removed!' });
     });
   },
 

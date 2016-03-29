@@ -17,11 +17,14 @@ mongoose.connect('mongodb://localhost:27017/mean', function(err) {
 // logs usefull intel for every requested routes
 app.use(logger('dev'));
 
+
 /*
  * populates the req.body property with the parsed body, or an empty object ({})
  * if there was no body to parse (or an error was returned).
 */
-app.use(bodyParser.json({limit: '4mb'}));
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({ extended: false }));
+
 
 // serves favicon
 app.use(favicon(__dirname + '/client/assets/favicon.ico'));
@@ -39,7 +42,7 @@ app.use(express.static(__dirname + '/client/dist'));
 app.all('/*', function(req, res, next){
   res.header("Access-Control-Allow-Origin", "*");
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-type,Accept,X-Access-Token');
+  res.header('Access-Control-Allow-Headers', 'Origin,Content-type,Accept,X-Access-Token');
   ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress;
   if (req.method == 'OPTIONS'){
     res.status(200).end();
@@ -54,22 +57,6 @@ app.all('/*', function(req, res, next){
 */
 app.all('/api/v1/', [require('./server/middlewares/checkToken')]);
 
-// post related routes
-var post = require('./server/routes/post.js');
-app.get('/api/v1/posts', post.getAll);
-app.get('/api/v1/post/:id', post.getOne);
-app.post('/api/v1/admin/post/', post.create);
-app.put('/api/v1/admin/post/:id', post.update);
-app.delete('/api/v1/admin/post/:id', post.delete);
-
-// gallery related routes
-var gallery = require('./server/routes/gallery.js');
-app.get('/api/v1/galleries', gallery.getAll);
-app.get('/api/v1/gallery/:id', gallery.getOne);
-app.post('/api/v1/admin/gallery/', gallery.create);
-app.put('/api/v1/admin/gallery/:id', gallery.update);
-app.delete('/api/v1/admin/gallery/:id', gallery.delete);
-
 // user related routes
 var user = require('./server/routes/user.js');
 app.post('/login', user.login);
@@ -78,6 +65,17 @@ app.get('/api/v1/admin/user/:id', user.getOne);
 app.post('/api/v1/admin/user/', user.create);
 app.put('/api/v1/admin/user/:id', user.update);
 app.delete('/api/v1/admin/user/:id', user.delete);
+
+// user related routes
+var offre = require('./server/routes/offre.js');
+app.get('/api/v1/offres', offre.getAll);
+app.get('/api/v1/offre/:id', offre.getOne);
+app.post('/api/v1/admin/offre/', offre.create);
+app.post('/api/v1/admin/offreWithImg/:id', offre.updateWithImg);
+app.put('/api/v1/admin/offre/:id', offre.update);
+app.delete('/api/v1/admin/offre/:id', offre.delete);
+
+
 
 // if we're not working with our rest api send index.html
 // this is necessary because we use html5mode(true) on client side

@@ -10,7 +10,7 @@
   function PrivateController($scope, $location, $routeParams, LoggedFactory){
     $scope.data = {
      on: LoggedFactory.isLogged,
-     singleSelect: 'posts',
+     singleSelect: 'offres',
     };
 
     $scope.check = function(arg) {
@@ -21,5 +21,5 @@
       return false;
     };
   }
-  
+
 })();
