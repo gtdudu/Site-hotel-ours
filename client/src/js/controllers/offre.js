@@ -5,11 +5,16 @@
     .module('ngclient')
     .controller('offreController', OffreController);
 
-  OffreController.$inject = ['$scope', 'offreFactory', '$location', '$routeParams', 'LoggedFactory'];
+  OffreController.$inject = ['$rootScope', '$scope', 'offreFactory', '$location', '$routeParams', 'LoggedFactory'];
 
-  function OffreController($scope, offreFactory, $location, $routeParams, LoggedFactory) {
+  function OffreController($rootScope, $scope, offreFactory, $location, $routeParams, LoggedFactory) {
+    console.log($rootScope);
     $scope.offres = [];
     $scope.images = [];
+
+    $scope.getLang = function(obj, field) {
+      return obj[field + $rootScope.lang];
+    };
 
     $scope.init = function() {
       offreFactory.getOffres().then(function(data) {
@@ -47,8 +52,10 @@
     $scope.submit = function() {
       if ($scope.form.file.$valid && $scope.file) {
         offreFactory.createOffre({
-          title: $scope.offreTitle,
-          content: $scope.offreContent,
+          titlefr: $scope.offreTitleFr,
+          contentfr: $scope.offreContentFr,
+          titleen: $scope.offreTitleEn,
+          contenten: $scope.offreContentEn,
           file: $scope.file
         }).then(function (success, error, progress) {
           if (success) {
@@ -69,14 +76,16 @@
     };
 
     $scope.update = function(offre) {
-      console.log(offre);
-      if ($scope.form.file.$valid && $scope.file) {
-        offreFactory.updateOffreWithImg({
+        var updated = {
           _id: $scope.offre._id,
-          title: $scope.offre.title,
-          content: $scope.offre.content,
+          titlefr: $scope.offre.titlefr,
+          contentfr: $scope.offre.contentfr,
+          titleen: $scope.offre.titleen,
+          contenten: $scope.offre.contenten,
           file: $scope.file
-        }).then(function (success, error, progress) {
+        };
+      if ($scope.form.file.$valid && $scope.file) {
+        offreFactory.updateOffreWithImg(updated).then(function (success, error, progress) {
           if (success) {
             $scope.offres.push(success.data);
             console.log('Success ' + success.config.data.file.name + ' uploaded. Response: ' + JSON.stringify(success.data));
@@ -91,7 +100,7 @@
           }
         });
       } else {
-        offreFactory.updateOffre(offre);
+        offreFactory.updateOffre(updated);
 
       }
     };

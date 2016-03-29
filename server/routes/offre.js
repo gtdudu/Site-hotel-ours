@@ -3,11 +3,13 @@ var multer  = require('multer');
 
 Offre.count({}, function(err, result){
   if (result === 0){
-    var etape = new Offre();
-    etape.title = 'offre I';
-    etape.content = 'Vbi curarum abiectis ponderibus aliis tamquam nodum et codicem difficillimum Caesarem convellere nisu valido cogitabat, eique deliberanti cum proximis clandestinis conloquiis et nocturnis qua vi, quibusve commentis id fieret, antequam effundendis rebus pertinacius incumberet confidentia, acciri mollioribus scriptis per simulationem tractatus publici nimis urgentis eundem placuerat Gallum, ut auxilio destitutus sine ullo interiret obstaculo.';
-    etape.image = '/img/chambre.png';
-    etape.save(function (err) {
+    var offre = new Offre();
+    offre.titlefr = 'offre I';
+    offre.contentfr = 'Vbi curarum abiectis ponderibus aliis tamquam nodum et codicem difficillimum Caesarem convellere nisu valido cogitabat, eique deliberanti cum proximis clandestinis conloquiis et nocturnis qua vi, quibusve commentis id fieret, antequam effundendis rebus pertinacius incumberet confidentia, acciri mollioribus scriptis per simulationem tractatus publici nimis urgentis eundem placuerat Gallum, ut auxilio destitutus sine ullo interiret obstaculo.';
+    offre.titleen = 'offre I';
+    offre.contenten = 'Vbi curarum abiectis ponderibus aliis tamquam nodum et codicem difficillimum Caesarem convellere nisu valido cogitabat, eique deliberanti cum proximis clandestinis conloquiis et nocturnis qua vi, quibusve commentis id fieret, antequam effundendis rebus pertinacius incumberet confidentia, acciri mollioribus scriptis per simulationem tractatus publici nimis urgentis eundem placuerat Gallum, ut auxilio destitutus sine ullo interiret obstaculo.';
+    offre.image = '/img/chambre.png';
+    offre.save(function (err) {
       if (err)
         throw err;
     });
@@ -56,8 +58,10 @@ var offres = {
          return;
       }
       var offre = new Offre();
-      offre.title = req.body.title;
-      offre.content = req.body.content;
+      offre.titlefr = req.body.titlefr;
+      offre.contentfr = req.body.contentfr;
+      offre.titleen = req.body.titleen;
+      offre.contenten = req.body.contenten;
       offre.image = '/img/' + req.file.filename;
       offre.save(function(err, results) {
         if (err) {
@@ -77,8 +81,10 @@ var offres = {
          return;
       }
       Offre.findByIdAndUpdate({ _id: req.params.id }, {
-       title: req.body.title,
-       content: req.body.content,
+        titlefr: req.body.titlefr,
+        contentfr: req.body.contentfr,
+        titleen: req.body.titleen,
+        contenten: req.body.contenten,
        image: '/img/' + req.file.filename
      }, function(err, result) {
       if (err)
@@ -91,7 +97,12 @@ var offres = {
  },
 
   update: function(req, res) {
-    Offre.findByIdAndUpdate({ _id: req.params.id }, { title: req.body.title, content: req.body.content }, function(err, result) {
+    Offre.findByIdAndUpdate({ _id: req.params.id }, {
+      titlefr: req.body.titlefr,
+      contentfr: req.body.contentfr,
+      titleen: req.body.titleen,
+      contenten: req.body.contenten,
+     }, function(err, result) {
       if (err)
         res.send(err);
       else

@@ -1,11 +1,19 @@
 var mongoose = require('mongoose');
 
 var OffreSchema = new mongoose.Schema({
-	title: {
+	titlefr: {
 		type: String,
 		required: true
 	},
-	content: {
+	contentfr: {
+		type: String,
+		required: true
+	},
+	titleen: {
+		type: String,
+		required: true
+	},
+	contenten: {
 		type: String,
 		required: true
 	},

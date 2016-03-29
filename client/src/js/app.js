@@ -72,6 +72,9 @@ myApp.config(function($routeProvider, $httpProvider, $locationProvider) {
 
 myApp.run(function($rootScope, $window, $location, LoggedFactory) {
 
+
+  $rootScope.lang = 'fr';
+  
   LoggedFactory.check();
 
   $rootScope.$on("$routeChangeStart", function(event, nextRoute, currentRoute) {

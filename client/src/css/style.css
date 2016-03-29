@@ -319,6 +319,7 @@ gt-Notification{
 .navbar-left li {
   padding-top: 15px;
   padding-bottom: 14px;
+  z-index: 9999;
 }
 .navbar-left li a {
   padding: 0;
@@ -556,4 +557,16 @@ gt-Notification{
 }
 .dashboard {
   text-align: left;
+}
+.buttonImg {
+  color: #710f11;
+  text-align: center;
+  padding: 20px;
+}
+button[type=submit] {
+  float: right;
+  background: #c57329;
+  padding: 20px;
+  border: none;
+  color: white;
 }
