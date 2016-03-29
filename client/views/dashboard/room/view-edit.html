@@ -1,0 +1,119 @@
+<div class="container mb-80" ng-controller="roomCtrl" ng-init="findOne()">
+  <div class="col-xs-12 col-sm-12 col-md-6">
+    <div class="room">
+      <div class="row">
+        <div class="col-xs-12 img-wrap">
+          <img ng-if="file" ngf-src="file" ngf-resize="{width: 480, height: 300}">
+          <img ng-show="!file" class="room-pic" ng-src="{{room.image}}">
+          <h6 class="room-title">{{room.typefr}}</h6>
+        </div>
+      </div>
+      <div class="row mt-40">
+        <div class="col-xs-12 mb-20">
+          <div class="description">
+            <p>{{room.contentfr}}</p>
+          </div>
+          <div class="mt-20">
+            <p ng-repeat="a in room.amnetiesfr track by $index">{{a}}</p>
+          </div>
+          <div class="mt-20">
+            <p>{{room.pricefr}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-6">
+    <div class="room">
+      <div class="row">
+        <div class="col-xs-12 img-wrap">
+          <img ng-if="file" ngf-src="file" ngf-resize="{width: 480, height: 300}">
+          <img ng-show="!file" class="room-pic" ng-src="{{room.image}}">
+          <h6 class="room-title">{{room.typeen}}</h6>
+        </div>
+      </div>
+      <div class="row mt-40">
+        <div class="col-xs-12 mb-20">
+          <div class="description">
+            <p>{{room.contenten}}</p>
+          </div>
+          <div class="mt-20">
+            <p ng-repeat="a in room.amnetiesen track by $index">{{a}}</p>
+          </div>
+          <div class="mt-20">
+            <p>{{room.priceen}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12">
+    <div class="page-header">
+      <h6>Editer les informations de cette chambre</h6>
+    </div>
+  </div>
+  <form name="form">
+    <div class="col-xs-12 col-sm-6">
+      <p class="mb-20">En français</p>
+        <div class="form-group">
+          <label class="control-label" for="title">Type</label>
+          <div class="controls">
+            <input name="roomType" type="text" ng-model="room.typefr" id="roomType" class="form-control" placeholder="Type" required>
+          </div>
+        </div>
+    		<div class="form-group">
+    			<label class="control-label" for="content">Description</label>
+    			<div class="controls">
+    				<textarea name="roomContent" ng-model="room.contentfr" id="roomContent" class="form-control" cols="30" rows="10" placeholder="Description"></textarea>
+    			</div>
+    		</div>
+        <div class="form-group">
+    			<label class="control-label" for="title">Renseignez les équipements séparés par une virgule</label>
+    			<div class="controls">
+    				<input name="roomAmneties" type="text" data-ng-model="amnetiesfr" id="roomAmneties" class="form-control" placeholder="free-wifi, téléphone, bain" required>
+    			</div>
+    		</div>
+        <div class="form-group">
+    			<label class="control-label" for="title">Prix</label>
+    			<div class="controls">
+    				<input name="roomPrice" type="text" data-ng-model="room.pricefr" id="roomPrice" class="form-control" placeholder="ex: 59€ par nuit" required>
+    			</div>
+    		</div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+      <p class="mb-20">En Anglais</p>
+      <div class="form-group">
+        <label class="control-label" for="title">Type</label>
+        <div class="controls">
+          <input name="roomType" type="text" data-ng-model="room.typeen" id="roomType" class="form-control" placeholder="Type" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="content">Description</label>
+        <div class="controls">
+          <textarea name="roomContent" data-ng-model="room.contenten" id="roomContent" class="form-control" cols="30" rows="10" placeholder="Description"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="title">Renseignez les équipements séparés par une virgule</label>
+        <div class="controls">
+          <input name="roomAmneties" type="text" data-ng-model="amnetiesen" id="roomAmneties" class="form-control" placeholder="free-wifi, téléphone, bain" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="title">Prix</label>
+        <div class="controls">
+          <input name="roomPrice" type="text" data-ng-model="room.priceen" id="roomPrice" class="form-control" placeholder="ex: 59€ par nuit" required>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="buttonImg" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+        ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="300">Cliquez pour sélectionner une image</div>
+        <img ngf-thumbnail="file"  ngf-size="{width: 60, height: 60, quality: 0.9}">
+      <button type="submit" ng-click="update(room)">Modifier la chambre</button>
+    </div>
+
+  </form>
+</div>

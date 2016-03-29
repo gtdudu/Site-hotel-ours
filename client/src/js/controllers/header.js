@@ -55,12 +55,12 @@
         return route === $location.path();
       };
 
-      $scope.isAdmin = function() {
-        return LoggedFactory.userRole === 'admin';
+      $scope.isLogged = function() {
+        return LoggedFactory.user;
       };
 
-      $scope.logout = function () {
-        AuthFactory.logout();
+      $scope.isAdmin = function() {
+        return LoggedFactory.userRole === 'admin';
       };
 
       $scope.scrollTo = function(id) {
@@ -76,7 +76,10 @@
         else {
           $rootScope.lang = 'fr';
         }
-        console.log($rootScope.lang);
+      };
+
+      $scope.goTo = function(path) {
+        $location.path(path);
       };
     }
 

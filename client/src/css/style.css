@@ -151,13 +151,10 @@ h6 {
   font-size: 21.328px !important;
   font-size: 2.1328rem !important;
 }
-p {
+p,
+a {
   font-size: 16px !important;
   font-size: 1.6rem !important;
-}
-a {
-  font-size: 12.003px !important;
-  font-size: 1.2003rem !important;
 }
 html {
   font-size: 62.5%;
@@ -170,6 +167,10 @@ body {
   color: #710f11;
   background: #fcfcfc;
   letter-spacing: 1px;
+}
+table {
+  font-size: 12.003px !important;
+  font-size: 1.2003rem !important;
 }
 .unselectable {
   -moz-user-select: none;
@@ -207,6 +208,9 @@ body {
 }
 .mb-40 {
   margin-bottom: 40px;
+}
+.mb-80 {
+  margin-bottom: 80px;
 }
 .mw-700 {
   max-width: 700px;
@@ -262,7 +266,6 @@ gt-Notification{
   z-index: 8;
   top: 35px;
   left: 50%;
-  color: #710f11;
   -webkit-transform: translate(-50%, 0);
   -moz-transform: translate(-50%, 0);
   -ms-transform: translate(-50%, 0);
@@ -275,6 +278,12 @@ gt-Notification{
   -moz-transition: all .4s linear;
   -webkit-transition: all .4s linear;
   opacity: 1;
+}
+.logo a {
+  font-size: 21.328px !important;
+  font-size: 2.1328rem !important;
+  text-decoration: none;
+  color: #710f11;
 }
 @media (min-width: 768px) {
   .logo {
@@ -416,14 +425,14 @@ gt-Notification{
   -o-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
 }
-.food-title h6 {
+.food-title span {
   display: inline;
   padding: 10px;
   background: #c57329;
   font-size: 16px !important;
   font-size: 1.6rem !important;
 }
-.food-title h6:first-child {
+.food-title span:first-child {
   margin-right: 10px;
 }
 .food-title .selected {
@@ -454,6 +463,7 @@ gt-Notification{
   background: #c57329;
   max-width: 100px;
   color: white;
+  z-index: 10000;
   text-transform: uppercase;
   padding: 10px;
   margin: auto;
@@ -559,7 +569,8 @@ gt-Notification{
   text-align: left;
 }
 .buttonImg {
-  color: #710f11;
+  font-size: 16px !important;
+  font-size: 1.6rem !important;
   text-align: center;
   padding: 20px;
 }
@@ -569,4 +580,10 @@ button[type=submit] {
   padding: 20px;
   border: none;
   color: white;
+}
+.langMenu span {
+  cursor: pointer;
+}
+.btn-warning {
+  background: #710f11 !important;
 }

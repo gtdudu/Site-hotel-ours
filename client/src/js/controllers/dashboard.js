@@ -5,12 +5,12 @@
     .module('ngclient')
     .controller('privateController', PrivateController);
 
-  PrivateController.$inject = ['$scope', '$location', '$routeParams', 'LoggedFactory'];
+  PrivateController.$inject = ['$scope', '$location', '$routeParams', 'LoggedFactory', 'AuthFactory'];
 
-  function PrivateController($scope, $location, $routeParams, LoggedFactory){
+  function PrivateController($scope, $location, $routeParams, LoggedFactory, AuthFactory){
     $scope.data = {
      on: LoggedFactory.isLogged,
-     singleSelect: 'offres',
+     singleSelect: 'chambres',
     };
 
     $scope.check = function(arg) {
@@ -19,6 +19,10 @@
           return true;
       }
       return false;
+    };
+
+    $scope.logout = function () {
+      AuthFactory.logout();
     };
   }
 

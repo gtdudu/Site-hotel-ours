@@ -1,18 +1,30 @@
 <div class="container" ng-controller="privateController">
 
+  <div class="container">
+
+  <!-- <li ng-show="isAdmin()" ng-class="{active:isActive('/dashboard')}"><a ng-href="#/dashboard">dashboard</a></li>
+  <li><a href="javascript:" ng-click="logout()" ng-show="showMenu">Logout</a></li> -->
+
+  <div class="row">
+    <div class="col-xs-12 mb-20">
+      <h6 ng-click="logout()">Logout</h6>
+    </div>
+  </div>
+
   <form name="myForm">
     <label class="mb-20" for="singleSelect"><p>Que souhaitez modifier ?</p></label><br/>
     <select name="singleSelect" ng-model="data.singleSelect">
       <option value="users">Utilisateurs</option>
+      <option value="chambres">Chambres</option>
       <option value="offres">Offres</option>
     </select><br>
   </form>
 
-  <div class="container dashboard">
-    <div class="row">
+    <div class="row dashboard">
       <div class="col-lg-12">
 
         <div ng-show="check('offres')"  ng-include="'dashboard/offre/list.html'"></div>
+        <div ng-show="check('chambres')"  ng-include="'dashboard/room/list.html'"></div>
 
         <div ng-show="check('users')"  ng-include="'dashboard/user/list.html'"></div>
         <div ng-show="check('users')"  ng-include="'dashboard/user/create.html'"></div>

@@ -8,7 +8,6 @@
   OffreController.$inject = ['$rootScope', '$scope', 'offreFactory', '$location', '$routeParams', 'LoggedFactory'];
 
   function OffreController($rootScope, $scope, offreFactory, $location, $routeParams, LoggedFactory) {
-    console.log($rootScope);
     $scope.offres = [];
     $scope.images = [];
 
@@ -39,14 +38,6 @@
 
     $scope.goToView = function(offre) {
       $location.path('/offre/' + offre._id);
-    };
-
-    $scope.goToCreate = function() {
-      $location.path('/offre/create');
-    };
-
-    $scope.goToEdit = function(offre) {
-      $location.path('/offre/' + offre._id + '/edit');
     };
 
     $scope.submit = function() {

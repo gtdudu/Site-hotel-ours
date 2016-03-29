@@ -1,26 +1,39 @@
 var mongoose = require('mongoose');
 
 var RoomSchema = new mongoose.Schema({
-	type: {
+	typefr: {
 		type: String,
 		required: true
 	},
-  synopsis: {
+	contentfr: {
+		type: String,
+		required: true
+	},
+	amnetiesfr: {
+    type: [String],
+		required: true
+  },
+	pricefr: {
     type: String,
     required: true
   },
-	content: {
+	typeen: {
 		type: String,
 		required: true
 	},
-  price: {
-    type: Number,
+	contenten: {
+		type: String,
+		required: true
+	},
+	amnetiesen: {
+    type: [String],
+		required: true
+  },
+	priceen: {
+    type: String,
     required: true
   },
-	amneties: {
-    type: [String],
-  },
-  images: {
+  image: {
     type: String,
     required: true
   }

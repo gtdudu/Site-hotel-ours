@@ -1,39 +1,69 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12 img-wrap">
-      <div class="food-pic"></div>
-      <div class="food-title">
-        <h6 class="selected">Restaurant</h6>
-        <h6>Brasserie</h6>
+<div ng-controller="restoCtrl">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 img-wrap">
+        <div class="food-pic"></div>
+        <div class="food-title">
+          <span ng-repeat="o in option" ng-click="select(o)" ng-class="{selected: isActive(o)}">{{o}}</span>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="container mt-40">
-  <div class="row mt-20">
-    <div class="col-xs-12 col-sm-3">
-      <div class="horaire">
-        <p class="title">petit-déjeuner</p>
-        <p>7.30 - 10.00</p>
-        <p class="title">déjeuner</p>
-        <p>12.00 - 14.30</p>
-        <p class="title">diner</p>
-        <p>18.30 - 22.00</p>
-        <p class="mt-20 menu">menu</p>
+  <div ng-show="selected === 'restaurant'" class="container mt-40">
+    <div class="row mt-20">
+      <div class="col-xs-12 col-sm-3">
+        <div class="horaire">
+          <p class="title">petit-déjeuner</p>
+          <p>7.30 - 10.00</p>
+          <p class="title">déjeuner</p>
+          <p>12.00 - 14.30</p>
+          <p class="title">diner</p>
+          <p>18.30 - 22.00</p>
+          <p ng-click="open()" class="mt-20 menu">menu</p>
+        </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-9 mw-700 align-left">
-      <p class="desc-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      <div class="col-xs-12 col-sm-9 mw-700 align-left">
+        <p class="desc-title">Pour le restaurant, consectetur adipiscing elit,
           sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           Ut enim ad minim veniam, quis nostrud exercitation ullamco
-          laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit,
+          laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+      </div>
     </div>
   </div>
+
+
+
+    <div ng-show="selected === 'brasserie'" class="container mt-40">
+      <div class="row mt-20">
+        <div class="col-xs-12 col-sm-3">
+          <div class="horaire">
+            <p class="title">petit-déjeuner</p>
+            <p>7.30 - 10.00</p>
+            <p class="title">déjeuner</p>
+            <p>12.00 - 14.30</p>
+            <!-- <span class="mt-20 menu" ng-click="open()">Open me!</span> -->
+            <p ng-click="open()" class="mt-20 menu">menu</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-9 mw-700 align-left">
+          <p class="desc-title">Pour la brasserie et, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+        </div>
+      </div>
+    </div>
 </div>

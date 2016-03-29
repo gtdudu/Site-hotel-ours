@@ -22,8 +22,11 @@ myApp.config(function($routeProvider, $httpProvider, $locationProvider) {
     })
     .when('/chambres', {
       templateUrl: 'partials/room.html',
-      controller: 'roomCtrl',
       requiredLogin: false
+    })
+    .when('/chambres/:id', {
+      templateUrl: 'dashboard/room/view-edit.html',
+      requiredLogin: true
     })
     .when('/restaurant', {
       templateUrl: 'partials/resto.html',
@@ -74,7 +77,7 @@ myApp.run(function($rootScope, $window, $location, LoggedFactory) {
 
 
   $rootScope.lang = 'fr';
-  
+
   LoggedFactory.check();
 
   $rootScope.$on("$routeChangeStart", function(event, nextRoute, currentRoute) {

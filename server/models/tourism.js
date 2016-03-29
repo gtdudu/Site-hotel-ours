@@ -12,7 +12,7 @@ var TourismSchema = new mongoose.Schema({
   link: {
     type: String,
   },
-	images: {
+	image: {
 		type: String,
 	}
 });

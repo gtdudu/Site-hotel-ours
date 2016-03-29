@@ -23,8 +23,7 @@ h3 { .font-size(5.0517) }
 h4 { .font-size(3.7897) }
 h5 { .font-size(2.843) }
 h6 { .font-size(2.1328) }
-p { .font-size(1.6) }
-a { .font-size(1.2003) }
+p, a { .font-size(1.6) }
 
 
 // BASIC SETUP ================================================================
@@ -40,6 +39,10 @@ body {
   color: @purple-red;
   background: @custom-white;
   letter-spacing: 1px;
+}
+
+table {
+  .font-size(1.2003);
 }
 
 // HELPER CLASS ================================================================
@@ -66,6 +69,7 @@ body {
 .mb-20 { margin-bottom: 20px; }
 .mb-30 { margin-bottom: 30px; }
 .mb-40 { margin-bottom: 40px; }
+.mb-80 { margin-bottom: 80px; }
 
 .mw-700 {   max-width: 700px; }
 
@@ -126,7 +130,6 @@ gt-Notification{
     z-index: 8;
     top: 35px;
     left: 50%;
-    color: @purple-red;
     -webkit-transform: translate(-50%,0);
     -moz-transform: translate(-50%,0);
     -ms-transform: translate(-50%,0);
@@ -141,7 +144,13 @@ gt-Notification{
     -moz-transition:all .4s linear;
     -webkit-transition:all .4s linear;
     opacity: 1;
+    a {
+      .font-size(2.1328);
+      text-decoration: none;
+      color: @purple-red;
+    }
 }
+
 
 @media (min-width: 768px) {
     .logo {
@@ -293,7 +302,7 @@ gt-Notification{
   -ms-transform: translate(-50%,0);
   -o-transform: translate(-50%,0);
   transform: translate(-50%,0);
-  h6 {
+  span {
     &:first-child {
       margin-right: 10px;
     }
@@ -301,6 +310,7 @@ gt-Notification{
     padding: 10px;
     background: @green-tea;
     .font-size(1.6);
+
   }
   .selected {
     background: @purple-red;
@@ -333,6 +343,7 @@ gt-Notification{
   background: @green-tea;
   max-width: 100px;
   color: white;
+  z-index: 10000;
   text-transform: uppercase;
   padding: 10px;
   margin: auto;
@@ -474,7 +485,7 @@ gt-Notification{
 }
 
 .buttonImg {
-  color: @purple-red;
+  .font-size(1.6);
   text-align: center;
   padding: 20px;
 }
@@ -485,4 +496,12 @@ button[type=submit] {
   padding: 20px;
   border: none;
   color: white;
+}
+
+.langMenu span {
+  cursor: pointer;
+}
+
+.btn-warning {
+  background: @purple-red!important;
 }

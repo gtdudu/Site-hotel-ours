@@ -66,7 +66,7 @@ app.post('/api/v1/admin/user/', user.create);
 app.put('/api/v1/admin/user/:id', user.update);
 app.delete('/api/v1/admin/user/:id', user.delete);
 
-// user related routes
+// offre related routes
 var offre = require('./server/routes/offre.js');
 app.get('/api/v1/offres', offre.getAll);
 app.get('/api/v1/offre/:id', offre.getOne);
@@ -74,6 +74,15 @@ app.post('/api/v1/admin/offre/', offre.create);
 app.post('/api/v1/admin/offreWithImg/:id', offre.updateWithImg);
 app.put('/api/v1/admin/offre/:id', offre.update);
 app.delete('/api/v1/admin/offre/:id', offre.delete);
+
+// rooms related routes
+var room = require('./server/routes/room.js');
+app.get('/api/v1/rooms', room.getAll);
+app.get('/api/v1/room/:id', room.getOne);
+app.post('/api/v1/admin/room/', room.create);
+app.post('/api/v1/admin/roomWithImg/:id', room.updateWithImg);
+app.put('/api/v1/admin/room/:id', room.update);
+app.delete('/api/v1/admin/room/:id', room.delete);
 
 
 
