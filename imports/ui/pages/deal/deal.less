@@ -1,0 +1,144 @@
+.deals {
+  .btn-primary, .btn-secondary {
+    cursor: pointer;
+  }
+  max-width: 800px;
+  margin: auto;
+  .create-wrap {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 3rem;
+  }
+  .title {
+    .font-m2;
+    .type-light;
+    color: @color-ancillary;
+    margin-top: 2rem;
+  }
+  .deal-create {
+    max-width: 800px;
+    margin: auto;
+    padding: 1rem;
+    background: #ececec;
+    margin-bottom: 3rem;
+    img {
+      margin: auto;
+      height: 400px;
+      width: 300px;
+      margin-bottom: 1rem;
+    }
+    .btn-secondary {
+      color: black;
+    }
+
+    label {
+      text-transform: capitalize;
+      padding-left: 1rem;
+    }
+    input {
+      width: 100%;
+      margin-top: 2px;
+      margin-bottom: 1rem;
+      padding: 1rem;
+    }
+    .lang-select {
+      width: 100%;
+      margin: 1rem 0;
+      height: 40px;
+      background: #fff;
+      border: none;
+      text-transform: lowercase;
+      text-transform: capitalize;
+
+    }
+    .select-box1 {
+      background: #fcfcfc;
+    }
+    .private {
+      margin-top: 2rem;
+      text-align: right;
+      p {
+        margin-bottom: 1rem;
+      }
+    }
+
+
+  }
+  .deal {
+    max-width: 800px;
+    margin: auto;
+    .pic-pair, .pic-impair {
+      width: 100%;
+      img {
+        padding-bottom: 2rem;
+        display: block;
+        margin: auto;
+        width: 100%;
+      }
+    }
+    .desc {
+      display: block;
+      margin: auto;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 3em;
+      .desc-title {
+        color: orange;
+      }
+      p:not(:first-child) {
+        padding-top: 1rem;
+      }
+      .private {
+        margin-top: 2rem;
+        p {
+          margin-bottom: 1rem;
+        }
+      }
+
+    }
+  }
+}
+
+@media screen and (min-width: 62em) {
+  .deals {
+    .title {
+      display: none;
+    }
+    .deal {
+      margin-bottom: 3em;
+      .pic {
+        height: 400px;
+        display: inline-block;
+        position: relative;
+        width: 49%;
+      }
+      .pic-pair {
+        img {
+          height: 400px;
+          width: 300px;
+          margin: 0;
+          float: left;
+        }
+      }
+      .pic-impair {
+        img {
+          height: 400px;
+          width: 300px;
+          margin: 0;
+          float: right;
+        }
+      }
+      .desc-pair {
+        padding-left: 6rem;        
+      }
+      .desc {
+        height: 400px;
+        display: inline-block;
+        position: relative;
+        width: 49%;
+        margin: auto;
+        padding-top: 3rem;
+      }
+    }
+  }
+}

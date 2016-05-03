@@ -1,0 +1,93 @@
+<template name="app_restaurant">
+  <div class="restaurants">
+    <h1 class="title">{{_ "restaurant"}}</h1>
+
+    {{#if isModifying}}
+    {{#with restaurantBeingMod}}
+      <div class="restaurant">
+        <img src="{{moddedPic}}" alt="image-modify" />
+        <div class="desc">
+          <label for="image-modify">Changer la photo</label>
+          <input class="btn-secondary" id="image" type="file" name="name" value="">
+          <label for="get-pdf">Changer de menu</label>
+          <input class="btn-secondary" id="get-pdf" type="file" name="get-pdf" value="">
+          <!-- <select id="lang-modify" name="lang-modify" class="btn-secondary lang-select">
+            <option value="en" {{isSelected 'en'}}>anglais</option>
+            <option value="fr" {{isSelected 'fr'}}>français</option>
+          </select> -->
+          <label for="title-modify">titre</label>
+          <input id="title-modify" type="text" name="title-modify" value="{{this.title}}">
+          <label for="desc-modify">description</label>
+          <input id="desc-modify" type="text" name="desc-modify" value="{{this.desc}}">
+          <label for="breakfast-modify">breakfast</label>
+          <input id="breakfast-modify" type="text" name="breakfast-modify" value="{{this.breakfast}}">
+          <label for="lunch-modify">lunch</label>
+          <input id="lunch-modify" type="text" name="lunch-modify" value="{{this.lunch}}">
+          <label for="dinner-modify">dinner</label>
+          <input id="dinner-modify" type="text" name="dinner-modify" value="{{this.dinner}}">
+          <!-- <label for="equip-modify">equipements</label>
+          <input id="equip-modify" type="text" name="equip-modify" value="{{this.equip}}">
+          <label for="price-modify">prix</label>
+          <input id="price-modify" type="text" name="price-modify" value="{{this.price}}"> -->
+          <div class="private">
+            <p id="{{this._id}}" class='btn-primary validate'>valider</p>
+            <p class='btn-primary cancel'>annuler</p>
+          </div>
+        </div>
+      </div>
+      {{/with}}
+    {{/if}}
+
+
+
+    {{#if Template.subscriptionsReady }}
+      {{#each restaurants}}
+        <div class="restaurant">
+          <img src="{{this.pic}}"/>
+          <div class="sub-title">
+            <p>{{this.title}}</p>
+          </div>
+          <div class="desc">
+            <div class="opening-time">
+              {{#if this.breakfast}}
+                <p class="time-title">{{_ "breakfast"}}</p>
+                <p>{{this.breakfast}}</p>
+              {{/if}}
+              {{#if this.lunch}}
+                <p class="time-title">{{_ "lunch"}}</p>
+                <p>{{this.lunch}}</p>
+              {{/if}}
+              {{#if this.dinner}}
+                <p class="time-title">{{_ "dinner"}}</p>
+                <p>{{this.dinner}}</p>
+              {{/if}}
+            </div>
+            <div class="actual-desc">
+              <p>{{_ "privateMsg"}}</p>
+              <p>{{this.desc}}</p>
+            </div>
+            <div class="menu-wrap">
+              <button class="btn-primary accordion">{{_ "seeMenu"}}</button>
+              <div class="panel">
+                <div class="menu-wrapper">
+                  <object data="{{this.menu}}" width="100%" height="100%">
+                  </object>
+                </div>
+              </div>
+            </div>
+            {{#if currentUser}}
+              <div class="private">
+                <p class='btn-primary modify'>modifier</p>
+                <!-- <p class='btn-primary delete'>supprimer</p> -->
+              </div>
+            {{/if}}
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      {{> app_loading}}
+    {{/if}}
+  </div>
+  {{> app_contact}}
+
+</template>

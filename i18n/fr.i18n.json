@@ -1,0 +1,19 @@
+{
+  "rooms": "Chambres",
+  "restaurant": "Restaurant",
+  "packages": "Offres",
+  "rental": "Privatisation",
+  "around": "Tourisme",
+  "gallery": "Galerie",
+  "events": "Evenements",
+  "directions": "Venir",
+  "notFound": "La page demandée n'a pas été trouvée.",
+  "breakfast": "Petit-Déjeuner",
+  "lunch": "Déjeuner",
+  "dinner": "Dinner",
+  "seeMenu": "Voir le menu",
+  "privateMsg": "Cet espace est privatisable, nous contacter pour plus d'information.",
+  "logisLink": "https://www.logishotels.com/fr/hotel/hotel-de-l-ours-670?partid=568&layout=search&ref=r",
+  "logis": "Réservation via logis",
+  "book": "Réservation"
+}

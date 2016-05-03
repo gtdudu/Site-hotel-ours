@@ -1,0 +1,9 @@
+import "./fixtures.js";
+import './security.js';
+import '../../api/rooms/rooms.js';
+import '../../api/restaurants/restaurants.js';
+import '../../api/deals/deals.js';
+import '../../api/arounds/arounds.js';
+import '../../api/galleries/galleries.js';
+import '../../api/directions/directions.js';
+import '../../api/events/events.js';

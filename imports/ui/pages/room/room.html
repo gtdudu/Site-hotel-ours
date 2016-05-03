@@ -1,0 +1,102 @@
+<template name="app_room">
+  <div class="rooms">
+    <h1 class="title">{{_ "rooms"}}</h1>
+
+    <div class="book-wrap">
+      <p class='btn-primary'><a href="{{_ "logisLink"}}">{{_ "logis"}}</a></p>
+      <p class='btn-primary internal-book'>Reservation direct</p>
+    </div>
+
+    {{#if Template.subscriptionsReady }}
+      {{#if notModifying}}
+        <div class="create-wrap">
+          <p class='btn-primary show-create'>nouvelle chambre</p>
+        </div>
+      {{/if}}
+      {{#if isCreating}}
+        <div class="room">
+          {{#if pic.image}}
+            <img src="{{pic.image}}" alt="image-insert" />
+          {{/if}}
+          <div class="desc">
+            <label for="image-insert">Sélectionner une photo</label>
+            <input class="btn-secondary" id="image" type="file" name="name" value="">
+            <select id="lang-insert" name="lang-insert" class="btn-secondary lang-select">
+              <option value="en">anglais</option>
+              <option value="fr">français</option>
+            </select>
+            <label for="title-insert">titre</label>
+            <input id="title-insert" type="text" name="title-insert" placeholder="Renseignez un titre.">
+            <label for="desc-insert">description</label>
+            <input id="desc-insert" type="text" name="desc-insert" placeholder="Renseignez une description">
+            <label for="equipment-insert">equipements</label>
+            <input id="equip-insert" type="text" name="equipment-insert" placeholder="renseignez les équipements séparés par une virgule.">
+            <label for="price-insert">prix</label>
+            <input id="price-insert" type="text" name="price-insert" placeholder="Indiquer un prix.">
+            <div class="private">
+              <p class='btn-primary validate'>valider</p>
+              <p class='btn-primary cancel'>annuler</p>
+            </div>
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if isModifying}}
+      {{#with roomBeingMod}}
+        <div class="room">
+          <img src="{{moddedPic}}" alt="image-modify" />
+          <div class="desc">
+            <label for="image-modify">Changer la photo</label>
+            <input class="btn-secondary" id="image" type="file" name="name" value="">
+            <select id="lang-modify" name="lang-modify" class="btn-secondary lang-select">
+              <option value="en" {{isSelected 'en'}}>anglais</option>
+              <option value="fr" {{isSelected 'fr'}}>français</option>
+            </select>
+            <label for="title-modify">titre</label>
+            <input id="title-modify" type="text" name="title-modify" value="{{this.title}}">
+            <label for="desc-modify">description</label>
+            <input id="desc-modify" type="text" name="desc-modify" value="{{this.desc}}">
+            <label for="equip-modify">equipements</label>
+            <input id="equip-modify" type="text" name="equip-modify" value="{{this.equip}}">
+            <label for="price-modify">prix</label>
+            <input id="price-modify" type="text" name="price-modify" value="{{this.price}}">
+            <div class="private">
+              <p id="{{this._id}}" class='btn-primary validate'>valider</p>
+              <p class='btn-primary cancel'>annuler</p>
+            </div>
+          </div>
+        </div>
+        {{/with}}
+      {{/if}}
+
+      {{#each rooms}}
+        <div class="room">
+          <img src="{{this.pic}}"/>
+          <div class="sub-title">
+            {{title}}
+          </div>
+          <div class="desc">
+            <div class="list">
+              <p>{{price}}</p>
+              {{#each splitEquip}}
+                  <p>{{this}}</p>
+              {{/each}}
+            </div>
+            <div class="actual-desc">
+              <p>{{desc}}</p>
+            </div>
+            {{#if currentUser}}
+              <div class="private">
+                <p class='btn-primary modify'>modifier</p>
+                <p class='btn-primary delete'>supprimer</p>
+              </div>
+            {{/if}}
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      {{> app_loading}}
+    {{/if}}
+  </div>
+  {{> app_contact}}
+</template>

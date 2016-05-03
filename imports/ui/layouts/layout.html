@@ -1,0 +1,71 @@
+<template name="app_nav">
+  <div role="navigation" id="navigation" class="nav-collapse">
+
+    <div class="btns-group">
+      <span id="en" class="btn-secondary js-select-lang {{activeLanguage 'en'}}">En</span>
+      <span id="fr" class="btn-secondary js-select-lang {{activeLanguage 'fr'}}">Fr</span>
+    </div>
+
+    <div class="main-title">
+      <h1>hotel de l'ours</h1>
+    </div>
+
+    <div class="list-menus">
+      {{#if currentUser}}
+        <a href="/dashboard" class="{{activeMenu 'dashboard'}}">Dashboard</a>
+      {{/if}}
+      <a href="/chambres" class="{{activeMenu 'chambres'}}">{{_ "rooms"}}</a>
+      <a href="/restaurant" class="{{activeMenu 'restaurant'}}">{{_ "restaurant"}}</a>
+      <a href="/offres" class="{{activeMenu 'offres'}}">{{_ "packages"}}</a>
+      <!-- <a href="/privatisation" class="{{activeMenu 'privatisation'}}">{{_ "rental"}}</a> -->
+      <a href="/tourisme" class="{{activeMenu 'tourisme'}}">{{_ "around"}}</a>
+      <a href="/galerie" class="{{activeMenu 'galerie'}}">{{_ "gallery"}}</a>
+      <a href="/evenements" class="{{activeMenu 'evenements'}}">{{_ "events"}}</a>
+      <a href="/venir" class="{{activeMenu 'venir'}}">{{_ "directions"}}</a>
+      {{#if currentUser}}
+      <a href="_blank" class="login-out">Logout</a>
+      {{/if}}
+    </div>
+  </div>
+</template>
+
+<template name="app_notif_msg">
+  <div class="notifications">
+    <div class="notification">
+      <div class="meta">
+        <div class="title-notification">{{title}}</div>
+        <div class="description">{{desc}}</div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="app_notifs">
+  {{#each errors}}
+    {{> app_notif_msg}}
+  {{/each}}
+</template>
+
+
+<template name="app_content">
+  {{> app_nav}}
+
+  {{> app_notifs}}
+
+  {{#unless connected}}
+    <div class="notifications">
+      <div class="notification">
+        <span class="icon-sync"></span>
+        <div class="meta">
+          <div class="title-notification">Trying to connect</div>
+          <div class="description">There seems to be a connection issue</div>
+        </div>
+      </div>
+    </div>
+  {{/unless}}
+
+  <div role="main" class="main">
+    <a href="#nav" class="nav-toggle">Menu</a>
+      {{> Template.dynamic template=wrapper}}
+  </div>
+</template>

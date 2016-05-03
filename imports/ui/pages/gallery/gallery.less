@@ -1,0 +1,105 @@
+.galleries {
+  max-width: 800px;
+  margin: auto;
+  .btn-primary, .btn-secondary {
+    cursor: pointer;
+  }
+  .create-wrap {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 3rem;
+  }
+  .title {
+    .font-m2;
+    .type-light;
+    color: @color-ancillary;
+    margin-top: 3rem;
+    padding-left: 1rem;
+  }
+
+  .gallery {
+    .btn-secondary {
+      color: black;
+    }
+    img {
+      height: 200px;
+      width: 300px;
+      margin: auto;
+    }
+    width: 100%;
+    .item {
+      padding: 1rem;
+      width: 100%;
+      img {
+        width: 100%;
+        height: 200px;
+        display: block;
+        margin: auto;
+      }
+      // &:last-child {
+      //   margin-bottom: 3em;
+      // }
+    }
+    .desc {
+
+      border: 1px solid #ececec;
+      padding: 1em;
+      text-align: left;
+      background: #eeeeee;
+      &.middle {
+        text-align: center;
+        // background: #fcfcfc;
+      }
+        label {
+        text-transform: capitalize;
+        padding-left: 1rem;
+      }
+      input {
+        width: 100%;
+        margin-top: 2px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+      }
+      .lang-select {
+        width: 100%;
+        margin: 1rem 0;
+        height: 40px;
+        background: #fff;
+        border: none;
+        text-transform: lowercase;
+        text-transform: capitalize;
+
+      }
+      .select-box1 {
+        background: #fcfcfc;
+      }
+
+      .private {
+        margin-top: 2rem;
+        text-align: right;
+        p {
+          margin-bottom: 1rem;
+        }
+      }
+
+    }
+  }
+}
+
+@media screen and (min-width: 40em) {
+  .galleries .gallery {
+    .item {
+        float: left;
+        width: 49%;
+    }
+  }
+}
+
+
+@media screen and (min-width: 62em) {
+  .gallery {
+    .title {
+      display: none;
+    }
+  }
+}

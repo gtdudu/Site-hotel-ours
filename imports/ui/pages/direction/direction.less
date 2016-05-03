@@ -1,0 +1,91 @@
+.directions {
+  .btn-primary, .btn-secondary {
+    cursor: pointer;
+  }
+  max-width: 800px;
+  margin: auto;
+  .create-wrap {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 3rem;
+  }
+  .title {
+    .font-m2;
+    .type-light;
+    color: @color-ancillary;
+    margin-top: 2rem;
+  }
+  .google-maps {
+      position: relative;
+      height: 300px;
+      min-width: 100%;
+      overflow: hidden;
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 336px;
+        width: 100% !important;
+        height: 400px !important;
+      }
+  }
+  .desc {
+    width: 100%;
+    background: #eeeeee;
+    padding: 2rem;
+    h4 {
+      padding-bottom: 0.2rem;
+      &:not(:first-child) {
+        margin-top: 1rem;
+      }
+    }
+    a {
+      color: blue;
+    }
+    .btn-secondary {
+      color: black;
+    }
+    label {
+      text-transform: capitalize;
+      padding-left: 1rem;
+    }
+    input {
+      width: 100%;
+      margin-top: 2px;
+      margin-bottom: 1rem;
+      padding: 1rem;
+    }
+    .lang-select {
+      width: 100%;
+      margin: 1rem 0;
+      height: 40px;
+      background: #fff;
+      border: none;
+      text-transform: lowercase;
+      text-transform: capitalize;
+    }
+    .select-box1 {
+      background: #fcfcfc;
+    }
+    .private {
+      margin-top: 1rem;
+      text-align: right;
+      p {
+        margin-bottom: 1rem;
+      }
+    }
+
+  }
+}
+
+@media (min-width: 62em){
+  .directions .google-maps {
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 62em) {
+  .directions .title {
+    display: none;
+  }
+}

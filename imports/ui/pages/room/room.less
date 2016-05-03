@@ -1,0 +1,128 @@
+.rooms {
+  .btn-primary, .btn-secondary {
+    cursor: pointer;
+  }
+  .book-wrap {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    p {
+      display: block;
+      max-width: 300px;
+      margin: auto;
+      &:first-child {
+        a {
+          color: #fcfcfc;
+        }
+        margin-bottom: 1rem;
+      }
+      cursor: pointer;
+    }
+  }
+
+  max-width: 800px;
+  margin: auto;
+  .create-wrap {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 3rem;
+  }
+  .title {
+    .font-m2;
+    .type-light;
+    color: @color-ancillary;
+    margin-top: 2rem;
+  }
+  .room {
+    margin-bottom: 30px;
+    img {
+      max-height: 400px;
+      margin: auto;
+      width: 100%;
+    }
+    .btn-secondary {
+      color: black;
+    }
+    .sub-title {
+      position: relative;
+      text-align: center;
+      margin: auto;
+      width: 200px;
+      margin-top: -22px;
+      padding: 10px;
+      background: #F96332;
+      color: white;
+    }
+    .desc {
+      width: 100%;
+      margin-top: -20px;
+      padding: 40px;
+      background: #eeeeee;
+      padding-bottom: 2rem;
+      &:after {
+        content: ""; /* Important, sinon l'élément n'est pas généré. */
+        display: table;
+        clear: both;
+      }
+      label {
+        text-transform: capitalize;
+        padding-left: 1rem;
+      }
+      input {
+        width: 100%;
+        margin-top: 2px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+      }
+      .list {
+        text-align: center;
+        text-transform: capitalize;
+        p:first-child {
+          .type-bold;
+          margin-bottom: 1rem;
+        }
+      }
+      .actual-desc {
+        margin-top: 1rem;
+        padding-bottom: 2rem;
+      }
+      .lang-select {
+        width: 100%;
+        margin: 1rem 0;
+        height: 40px;
+        background: #fff;
+        border: none;
+        text-transform: lowercase;
+        text-transform: capitalize;
+
+      }
+      .select-box1 {
+        background: #fcfcfc;
+      }
+
+      .private {
+        margin-top: 2rem;
+        text-align: right;
+        p {
+          margin-bottom: 1rem;
+        }
+      }
+
+    }
+  }
+}
+
+@media screen and (min-width: 40em) {
+  .rooms .title { display: none; }
+  .rooms .room .desc {
+    .list {
+      padding-left: 2rem;
+      float: left;
+    }
+    .actual-desc {
+      margin-top: 0;
+      margin-left: 15rem;
+    }
+  }
+
+}

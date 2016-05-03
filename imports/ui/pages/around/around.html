@@ -1,0 +1,89 @@
+<template name="app_around">
+  <div class="arounds">
+    <h1 class="title">{{_ "around"}}</h1>
+
+    {{#if Template.subscriptionsReady }}
+      {{#if notModifying}}
+        <div class="create-wrap">
+          <p class='btn-primary show-create'>nouvelle offre</p>
+        </div>
+      {{/if}}
+      {{#if isCreating}}
+        <div class="around-create">
+          {{#if pic.image}}
+            <img src="{{pic.image}}" alt="image-insert" />
+          {{/if}}
+          <div class="desc">
+            <label for="image-insert">Sélectionner une photo</label>
+            <input class="btn-secondary" id="image" type="file" name="name" value="">
+            <select id="lang-insert" name="lang-insert" class="btn-secondary lang-select">
+              <option value="en">anglais</option>
+              <option value="fr">français</option>
+            </select>
+            <label for="title-insert">titre</label>
+            <input id="title-insert" type="text" name="title-insert" placeholder="Renseignez un titre.">
+            <label for="extLink-insert">Lien officiel</label>
+            <input id="extLink-insert" type="text" name="extLink-insert" placeholder="Copier coller l'adresse du site ici">
+            <label for="desc-insert">description</label>
+            <input id="desc-insert" type="text" name="desc-insert" placeholder="Renseignez une description">
+            <div class="private">
+              <p class='btn-primary validate'>valider</p>
+              <p class='btn-primary cancel'>annuler</p>
+            </div>
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if isModifying}}
+        {{#with aroundBeingMod}}
+          <div class="around-create">
+            <img src="{{moddedPic}}" alt="image-modify" />
+            <div class="desc">
+              <label for="image-modify">Sélectionner une photo</label>
+              <input class="btn-secondary" id="image" type="file" name="image-modify" value="">
+              <select id="lang-modify" name="lang-modify" class="btn-secondary lang-select">
+                <option value="en" {{isSelected 'en'}}>anglais</option>
+                <option value="fr" {{isSelected 'fr'}}>français</option>
+              </select>
+              <label for="title-modify">titre</label>
+              <input id="title-modify" type="text" name="title-modify" value="{{this.title}}">
+              <label for="extLink-modify">Lien officiel</label>
+              <input id="extLink-modify" type="text" name="extLink-modify" value="{{this.extLink}}">
+              <label for="desc-modify">description</label>
+              <input id="desc-modify" type="text" name="desc-modify" value="{{this.desc}}">
+              <div class="private">
+                <p class='btn-primary validate'>valider</p>
+                <p class='btn-primary cancel'>annuler</p>
+              </div>
+            </div>
+          </div>
+
+        {{/with}}
+      {{/if}}
+
+      {{#each arounds}}
+        <div class="around">
+          <div class="{{aroundClass 'pic' @index}}">
+            <img src='{{this.pic}}'/>
+          </div>
+          <div class="desc {{aroundClass 'desc' @index}}">
+            <p class="desc-title">{{this.title}}</p>
+            <p>{{this.desc}}</p>
+            <p><a href="{{this.extLink}}">Le site officiel</a></p>
+            {{#if currentUser}}
+              <div class="private">
+                <p class='btn-primary modify'>modifier</p>
+                <p class='btn-primary delete'>supprimer</p>
+              </div>
+            {{/if}}
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      {{> app_loading}}
+    {{/if}}
+
+  </div>
+  {{> app_contact}}
+
+</template>

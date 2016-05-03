@@ -1,0 +1,25 @@
+@import './utils.less';
+
+
+.list-menus {
+  margin-top: 1em;
+  a {
+    text-transform: uppercase;
+    box-shadow: rgba(255,255,255,.15) 0 1px 0 0;
+    display: block;
+    line-height: 1.5em;
+    padding: .75em 2.5em;
+    position: relative;
+    &:hover,
+    &:active,
+    &.active {
+      color: #F96332;
+    }
+  }
+}
+
+@media screen and (max-width: 62em) {
+  .list-menus {
+    min-height: 550px;
+  }
+}

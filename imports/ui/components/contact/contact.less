@@ -1,0 +1,26 @@
+.footer {
+  margin-top: 3rem;
+  padding: 1rem 0 1rem 0;
+  p {
+    .type-italic;
+    .font-s2;
+    a {
+       color: inherit;
+    }
+  }
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background: #eeeeee;
+  text-align: center;
+  .phone-desktop { display: block; }
+  .phone-mobile { display: none; }
+
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .footer {
+    .phone-desktop { display: none; }
+    .phone-mobile { display: block; }
+  }
+}

@@ -1,0 +1,137 @@
+@-webkit-viewport { width: device-width; }
+@-moz-viewport { width: device-width; }
+@-ms-viewport { width: device-width; }
+@-o-viewport { width: device-width; }
+@viewport { width: device-width; }
+
+body {
+  min-width: 290px;
+  background-color: #452920;
+  background-image: linear-gradient(to bottom, #452920, #292B2A 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: #666;
+}
+
+.main-title {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  .font-l3;
+  margin-top: 2rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.main {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  padding: 3em;
+  position: fixed;
+  overflow: hidden;
+  overflow-y: scroll;
+  top: .8em;
+  right: 0;
+  bottom: 0;
+  width: 70%;
+  background: #fff;
+}
+
+.main::-webkit-scrollbar {
+  -webkit-appearance: none;
+  background-color: rgba(0,0,0, .15);
+  width: 8px;
+  height: 8px;
+}
+
+.main::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: rgba(0,0,0, .4);
+}
+
+.nav-collapse {
+  padding: 1rem;
+  position: absolute;
+  width: 30%;
+  top: 2em;
+  padding-bottom: 2em;
+  left: 0;
+}
+
+// .nav-collapse a:hover { background: rgba(255,255,255, .1) }
+// .nav-collapse .active a { color: #fff; background: rgba(0,0,0, .3) }
+.nav-toggle { display: none }
+
+@media screen and (max-width: 62em) {
+  .js .nav-collapse {
+    clip: rect(0 0 0 0);
+    max-height: 0;
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+  }
+  .nav-collapse {
+    top: 0;
+    width: 100%;
+    position: relative;
+    .opened {
+      max-height: 9999px;
+
+    }
+  }
+  .nav-toggle {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-decoration: none;
+    text-indent: -999px;
+    position: relative;
+    overflow: hidden;
+    width: 70px;
+    height: 55px;
+    float: right;
+    display: block;
+    margin: 0 -2em 1em 0;
+    &::before {
+      color: #444; /* Edit this to change the icon color */
+      font-size: 28px;
+      text-transform: none;
+      position: absolute;
+      content: "\2261";
+      text-indent: 0;
+      text-align: center;
+      line-height: 65px;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+    .active {
+      &::before {
+        font-size: 24px;
+        content: "\78";
+      }
+    }
+  }
+
+  .main {
+    -webkit-overflow-scrolling: auto;
+    box-shadow: none;
+    padding: 1em;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    &::-webkit-scrollbar { background-color: transparent }
+    padding-bottom: 3rem;
+  }
+}
