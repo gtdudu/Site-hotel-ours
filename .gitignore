@@ -1,0 +1,4 @@
+.DS_Store
+/node_modules
+/imports/startup/server/fixtures.js
+/imports/startup/server/smtp.js
